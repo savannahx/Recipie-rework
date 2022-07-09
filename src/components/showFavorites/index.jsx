@@ -5,7 +5,7 @@ import Container from "../ui/Container"
 import Notifications from "../ui/Notifications"
 import { AnimatePresence, motion } from "framer-motion"
 import { useContext, useEffect } from "react"
-import { RecipeContext } from "../store/RecipeContext"
+import { RecipeContext } from "../context/RecipeContext"
 import { useLocation } from "react-router-dom"
 
 const ShowFavorites = () => {
@@ -18,6 +18,7 @@ const ShowFavorites = () => {
     message,
   } = useContext(RecipeContext)
   let location = useLocation()
+
   useEffect(() => {
     if (location.pathname === "/favorites") {
       setWhichRecipe(false)

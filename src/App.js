@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import RecipiesPage from "./pages/RecipiesPage"
 import RecipePage from "./pages/RecipePage"
-import RecipeContextProvider from "./store/RecipeContext"
+import RecipeContextProvider from "./context/RecipeContext"
 import FavoritesPage from "./pages/FavoritesPage"
 
 function App() {

@@ -3,9 +3,10 @@ import { Link } from "react-router-dom"
 const Nav = () => {
   return (
     <>
-      <section className='py-4 bg-white w-full drop-shadow-[0_5px_10px_rgba(0,0,0,0.25)]'>
+      <section className='py-4 bg-white w-full drop-shadow-[0_5px_10px_rgba(0,0,0,0.25)] fixed bottom-0'>
         <nav className='w-full'>
           <ul className='flex justify-evenly'>
+            {/* Go to Home Page Link */}
             <li>
               <Link to='/' className='flex flex-col items-center'>
                 <svg
@@ -18,6 +19,7 @@ const Nav = () => {
                 <h3 className='font-light text-myRed'>Home</h3>
               </Link>
             </li>
+            {/* Go to Recipies Page Link */}
             <li>
               <Link to='/recipies' className='flex flex-col items-center'>
                 <svg
@@ -35,6 +37,7 @@ const Nav = () => {
                 <h3 className='font-light text-myRed'>Recipies</h3>
               </Link>
             </li>
+            {/* Go to Favorites Page Link */}
             <li>
               <Link to='/favorites' className='flex flex-col items-center'>
                 <svg

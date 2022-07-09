@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { excerpt } from "../util/Excerpt"
+import { excerpt } from "../util/excerpt"
 
 const Recipe = ({
   listItem,

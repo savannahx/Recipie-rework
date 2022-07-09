@@ -1,5 +1,5 @@
-import Logo from "../images/recipie-black.svg"
-import Img from "../images/img-placeholder.png"
+import Logo from "../../../images/recipie-black.svg"
+import Img from "../../../images/img-placeholder.png"
 import { v4 as uuidv4 } from "uuid"
 import { useState } from "react"
 
@@ -237,7 +237,7 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
             setRecipeDifficultyError("Please choose difficulty")
           }
           if (key === "recipePrepTime") {
-            setRecipePrepTimeError("Please provide minutes")
+            setRecipePrepTimeError("Please provide valid minutes")
           }
           if (key === "recipeImage") {
             setRecipeImageError("Please upload an image")
@@ -258,6 +258,24 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
         </div>
         {/* Form */}
         <form onSubmit={submitRecipe} className='w-full'>
+          {/* Go Back Icon */}
+          <div
+            onClick={() => setShowForm(false)}
+            className='cursor-pointer inline-block'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='h-10 w-10'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              strokeWidth={2}>
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                d='M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z'
+              />
+            </svg>
+          </div>
           {/* Recipe Name */}
           <div className='flex flex-col w-full mt-5 sm:mt-8'>
             <label
@@ -400,7 +418,7 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
                     type='text'
                     value={recipePrepTime}
                     onChange={prepTimeValidation}
-                    pattern='[0-9]*'
+                    // pattern='[0-9]*'
                     id='minutes'
                     autoComplete='off'
                     className='w-full px-2 py-2 text-lg font-medium cursor-pointer focus:outline-none sm:text-2xl sm:px-4 sm:py-4 lg:text-3xl lg:py-5'
@@ -470,3 +488,16 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
 }
 
 export default AddRecipeForm
+
+/* <FormContainer>
+{showForm && ( */
+/* <AnimatePresence>
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}>
+  <AddRecipeForm setShowForm={setShowForm} addRecipe={addRecipe} />
+</motion.div>
+</AnimatePresence> */
+// )}
+// </FormContainer>

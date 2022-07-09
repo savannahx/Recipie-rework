@@ -1,10 +1,9 @@
 import Logo from "../images/recipie-black.svg"
 import Nav from "../layout/Nav"
 import Spacer from "../ui/Spacer"
-import NavFixer from "../ui/NavFixer"
 import { motion, AnimatePresence } from "framer-motion"
 import { useContext } from "react"
-import { RecipeContext } from "../store/RecipeContext"
+import { RecipeContext } from "../context/RecipeContext"
 import { useParams } from "react-router-dom"
 
 const RecipePage = () => {
@@ -86,9 +85,7 @@ const RecipePage = () => {
       </Spacer>
 
       {/* Bottom Nav */}
-      <NavFixer>
-        <Nav />
-      </NavFixer>
+      <Nav />
     </>
   )
 }

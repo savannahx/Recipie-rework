@@ -56,6 +56,7 @@ const RecipeContextProvider = ({ children }) => {
               ingredients: data.ingredients,
               difficulty: data.difficulty,
               prepTime: data.minutes,
+              url: data.recipeName.toLowerCase(),
             })
           }
           sendRecipe()
