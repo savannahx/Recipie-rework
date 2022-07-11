@@ -17,7 +17,7 @@ export const RecipeContext = createContext()
 const RecipeContextProvider = ({ children }) => {
   const [recipies, setRecipies] = useState([])
   const [favorites, setFavorites] = useState([])
-  const [whichRecipe, setWhichRecipe] = useState(false)
+  const [isFavRecipe, setIsFavRecipe] = useState(false)
   const [showNotification, setShowNotification] = useState(false)
   const [message, setMessage] = useState("")
   const [showForm, setShowForm] = useState(false)
@@ -161,8 +161,8 @@ const RecipeContextProvider = ({ children }) => {
           favorites,
           addToFavorites,
           deleteFromFavorites,
-          whichRecipe,
-          setWhichRecipe,
+          isFavRecipe,
+          setIsFavRecipe,
           showNotification,
           message,
           showForm,

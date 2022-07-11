@@ -1,79 +1,37 @@
 import { Link } from "react-router-dom"
 import { excerpt } from "../util/excerpt"
 import "./recipeCard.scss"
-import { BsClockHistory } from "react-icons/bs"
+import { BsClockHistory, BsTrash, BsStar } from "react-icons/bs"
 
-const RecipeCard = ({
-  listItem,
-  deleteRecipe,
-  addToFavorites,
-  deleteFromFavorites,
-  whichRecipe,
-}) => {
+const RecipeCard = ({ values, recipe }) => {
   return (
     <>
       <div className='card-wrapper'>
         {/* Image */}
         <div className='img-wrapper'>
-          <img className='img' src={listItem.img} alt={listItem.recipeName} />
+          <img className='img' src={recipe.img} alt={recipe.recipeName} />
         </div>
         {/* SVGs favorite-delete */}
         <div className='absolute-them-for-now'>
-          {!whichRecipe && (
+          {/* {!values.isFavRecipe && (
             <button
-              onClick={(e) => deleteFromFavorites(listItem.id)}
+              onClick={(e) => deleteFromFavorites(values.listItem.id)}
               className='absolute grid w-12 h-12 bg-white border-2 rounded-full top-3 right-2 place-content-center hover:bg-red-400'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='w-6 h-6'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                strokeWidth={2}>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16'
-                />
-              </svg>
+              <BsTrash />
+            </button>
+          )} */}
+          {values.isFavRecipe && (
+            <button
+              onClick={() => values.deleteRecipe(values.listItem.id)}
+              className='absolute grid w-12 h-12 bg-white border-2 rounded-full top-3 right-2 place-content-center hover:bg-red-400'>
+              <BsTrash />
             </button>
           )}
-          {whichRecipe && (
+          {values.isFavRecipe && (
             <button
-              onClick={() => deleteRecipe(listItem.id)}
-              className='absolute grid w-12 h-12 bg-white border-2 rounded-full top-3 right-2 place-content-center hover:bg-red-400'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='w-6 h-6'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                strokeWidth={2}>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16'
-                />
-              </svg>
-            </button>
-          )}
-          {whichRecipe && (
-            <button
-              onClick={() => addToFavorites(listItem)}
+              onClick={() => values.addToFavorites(values.listItem)}
               className='absolute grid w-12 h-12 bg-white border-2 rounded-full top-3 right-16 place-content-center hover:bg-red-400'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='w-6 h-6'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                strokeWidth={2}>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z'
-                />
-              </svg>
+              <BsStar />
             </button>
           )}
         </div>
@@ -82,17 +40,17 @@ const RecipeCard = ({
           <div className='prep-time-area'>
             <BsClockHistory className='clock-icon' />
             <p className='prep-time-copy'>
-              - {listItem.prepTime}' {listItem.difficulty}
+              - {recipe.prepTime}' {recipe.difficulty}
             </p>
           </div>
           {/* Name */}
-          <h3 className='recipe-title'>{listItem.recipeName}</h3>
+          <h3 className='recipe-title'>{recipe.recipeName}</h3>
           {/* Description */}
           <div className='recipe-description'>
-            <p>{excerpt(listItem.description, 60)}</p>
+            <p>{excerpt(recipe.description, 60)}</p>
           </div>
           {/* Button */}
-          <Link to={`/recipies/${listItem.id}`} className='recipe-link'>
+          <Link to={`/recipies/${recipe.id}`} className='recipe-link'>
             Go to Recipe
           </Link>
         </div>

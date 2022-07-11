@@ -3,11 +3,13 @@ import AddIcon from "../images/add.svg"
 import RecipeCard from "./RecipeCard"
 import "./recipeDisplayArea.scss"
 
-const RecipeDisplayArea = ({ setShowForm }) => {
+const RecipeDisplayArea = ({ setShowForm, values }) => {
   const gotToForm = () => {
     window.scrollTo(0, 0)
     setShowForm(true)
   }
+
+  console.log(values.recipies)
 
   return (
     <>
@@ -19,15 +21,10 @@ const RecipeDisplayArea = ({ setShowForm }) => {
           <img className='add-icon' src={AddIcon} alt='add recipe icon' />
         </div>
         <div className='horizontal-scrolling-container'>
-          {recipies.map((recipe) => {
+          {values.recipies.map((recipe) => {
             return (
               <React.Fragment key={recipe.id}>
-                <RecipeCard
-                  listItem={recipe}
-                  addToFavorites={addToFavorites}
-                  deleteRecipe={deleteRecipe}
-                  whichRecipe={whichRecipe}
-                />
+                <RecipeCard values={values} recipe={recipe} />
               </React.Fragment>
             )
           })}
