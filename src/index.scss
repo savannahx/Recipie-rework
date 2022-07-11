@@ -6,7 +6,7 @@
 }
 
 // Screen sizes
-$bigMoble: 450px;
+$bigMobile: 450px;
 $smallTablet: 640px;
 $tablet: 768px;
 $laptop: 1024px;
@@ -16,12 +16,21 @@ $bigScreens: 1536px;
 // Colors
 $lightRed: #f87171;
 $red: #e55b5b;
+$redCopy: #870202;
+$offWhite: #f3f3f3;
+$offGray: #5e5e5e;
 
 // Mixins
 @mixin flex-row-center {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+}
+@mixin flex-row-start {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
 }
 @mixin flex-col-center {

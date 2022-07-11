@@ -1,5 +1,5 @@
-import Logo from "../../../images/recipie-black.svg"
-import Img from "../../../images/img-placeholder.png"
+import Logo from "../../images/recipie-black.svg"
+import Img from "../../images/img-placeholder.png"
 import { v4 as uuidv4 } from "uuid"
 import { useState } from "react"
 

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 import { excerpt } from "../util/excerpt"
-import "./addRecipeForm/recipeCard.scss"
+import "./recipeCard.scss"
+import { BsClockHistory } from "react-icons/bs"
 
-const Recipe = ({
+const RecipeCard = ({
   listItem,
   deleteRecipe,
   addToFavorites,
@@ -11,17 +12,13 @@ const Recipe = ({
 }) => {
   return (
     <>
-      <div className='relative'>
+      <div className='card-wrapper'>
         {/* Image */}
-        <div className=''>
-          <img
-            className='object-cover w-full rounded-md h-96'
-            src={listItem.img}
-            alt={listItem.recipeName}
-          />
+        <div className='img-wrapper'>
+          <img className='img' src={listItem.img} alt={listItem.recipeName} />
         </div>
         {/* SVGs favorite-delete */}
-        <div className=''>
+        <div className='absolute-them-for-now'>
           {!whichRecipe && (
             <button
               onClick={(e) => deleteFromFavorites(listItem.id)}
@@ -80,50 +77,28 @@ const Recipe = ({
             </button>
           )}
         </div>
-        {/* PrepTime */}
-        <div className='flex items-center justify-start mt-3 text-gray-500'>
-          <div>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-              strokeWidth={2}>
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
-              />
-            </svg>
+        <div className='card-content'>
+          {/* PrepTime */}
+          <div className='prep-time-area'>
+            <BsClockHistory className='clock-icon' />
+            <p className='prep-time-copy'>
+              - {listItem.prepTime}' {listItem.difficulty}
+            </p>
           </div>
-          <span className='mx-2 text-lg sm:text-xl md:text-2xl'>-</span>
-          <span className='mr-2 text-lg sm:text-xl md:text-2xl'>
-            {listItem.prepTime}'
-          </span>
-          <span className='text-lg sm:text-xl md:text-2xl'>
-            {listItem.difficulty}
-          </span>
-        </div>
-        {/* Name */}
-        <h3 className='mt-5 text-lg font-medium sm:text-xl md:text-2xl'>
-          {listItem.recipeName}
-        </h3>
-        {/* Description */}
-        <div className='mt-2 sm:text-lg md:text-xl'>
-          <p>{excerpt(listItem.description, 30)}</p>
-        </div>
-        {/* Button */}
-        <Link
-          to={`/recipies/${listItem.id}`}
-          className='flex justify-center align-center'>
-          <button className='w-full px-10 py-3 mt-8 mb-2 text-xl text-white rounded-md bg-myRed lg:w-auto lg:text-2xl lg:py-4 lg:px-12 lg:mb-4 lg:mt-10'>
+          {/* Name */}
+          <h3 className='recipe-title'>{listItem.recipeName}</h3>
+          {/* Description */}
+          <div className='recipe-description'>
+            <p>{excerpt(listItem.description, 60)}</p>
+          </div>
+          {/* Button */}
+          <Link to={`/recipies/${listItem.id}`} className='recipe-link'>
             Go to Recipe
-          </button>
-        </Link>
+          </Link>
+        </div>
       </div>
     </>
   )
 }
 
-export default Recipe
+export default RecipeCard

@@ -1,14 +1,14 @@
 import { AnimatePresence, motion } from "framer-motion"
-import "./addRecipeForm/showRecipies.scss"
+import "./showRecipies.scss"
 import { useContext, useEffect, useState } from "react"
 import { RecipeContext } from "../context/RecipeContext"
 import { useLocation } from "react-router-dom"
 import Notifications from "../ui/Notifications"
-import RecipeDisplayArea from "./reusableComps/RecipeDisplayArea"
-import ShowRecipiesLogo from "./reusableComps/RecipieLogo"
-import ShowRecipiesTitle from "./reusableComps/ShowRecipiesTitle"
+import RecipeDisplayArea from "./RecipeDisplayArea"
+import RecipieLogo from "./RecipieLogo"
+import RecipieTitle from "./RecipieTitle"
 
-const ShowRecipies = ({ setShowForm }) => {
+const ShowRecipies = ({ setShowForm, title }) => {
   const { setWhichRecipe, message, showNotification, showForm } =
     useContext(RecipeContext)
 
@@ -22,22 +22,19 @@ const ShowRecipies = ({ setShowForm }) => {
 
   return (
     <>
-      {/* Show Add Recipe Card and Display Available Recipes - Hide the 'Add a Recipe'Form */}
-      {!showForm && (
-        <AnimatePresence>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className='relative flex flex-col items-center justify-center'>
-            <ShowRecipiesLogo />
-            <ShowRecipiesTitle title='Your Recipies' />
-            <RecipeDisplayArea setShowForm={setShowForm} />
-            {/* Notifications Area - Fixed to Bottom */}
-            {showNotification && <Notifications>{message}</Notifications>}
-          </motion.div>
-        </AnimatePresence>
-      )}
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className='showRecipiesWrapper'>
+          <RecipieLogo />
+          <RecipieTitle title={title} />
+          <RecipeDisplayArea setShowForm={setShowForm} />
+          {/* Notifications Area - Fixed to Bottom */}
+          {showNotification && <Notifications>{message}</Notifications>}
+        </motion.div>
+      </AnimatePresence>
     </>
   )
 }

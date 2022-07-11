@@ -22,7 +22,7 @@ const HomePage = () => {
                 <img src={Logo} alt='Recipie Logo' className='logo' />
               </div>
               {/* Icon */}
-              <div className='imgIcon'>
+              <div className='iconWrapper'>
                 <img src={ChefImage} alt='Recipie Logo' className='icon' />
               </div>
               {/* Title */}
@@ -47,7 +47,7 @@ const HomePage = () => {
         </motion.section>
       </AnimatePresence>
       {/* Bottom Nav */}
-      {/* <Nav /> */}
+      <Nav />
     </>
   )
 }

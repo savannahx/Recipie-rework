@@ -1,0 +1,65 @@
+@import "../index.scss";
+
+.card-wrapper {
+  position: relative;
+  background-color: white;
+  border-radius: 12px;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+  scroll-snap-align: center;
+  max-width: 250px;
+  scroll-snap-stop: always;
+  flex: 0 0 auto;
+
+  .absolute-them-for-now {
+    position: absolute;
+  }
+
+  .img-wrapper {
+    .img {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .card-content {
+    padding: 20px;
+    @include flex-col-start;
+
+    .prep-time-area {
+      @include flex-row-start;
+      gap: 10px;
+
+      .clock-icon {
+        color: $offGray;
+        font-size: 1.6rem;
+      }
+
+      .prep-time-copy {
+        font-size: 1.3rem;
+        color: $offGray;
+      }
+    }
+
+    .recipe-title {
+      margin: 20px 0 7px;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .recipe-description {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .recipe-link {
+      background-color: $lightRed;
+      color: white;
+      padding: 20px 40px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+  }
+}

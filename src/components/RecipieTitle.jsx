@@ -1,9 +1,9 @@
-import "./addRecipeForm/recipieTitle.scss"
+import "./recipieTitle.scss"
 
 const ShowRecipiesTitle = ({ title }) => {
   return (
     <>
-      <h2 className='self-start text-xl mt-7 sm:text-3xl'>{title}</h2>
+      <h2 className='main-title'>{title}</h2>
     </>
   )
 }

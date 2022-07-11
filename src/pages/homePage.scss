@@ -7,6 +7,7 @@
   background: $gradient2;
   background: $gradient3;
   background: $gradient4;
+
   .homeWrapper {
     @include flex-col-center;
     padding: 1.25rem;
@@ -18,7 +19,7 @@
       }
     }
 
-    .imgIcon {
+    .iconWrapper {
       margin: 25px 0;
       max-width: 200px;
 
@@ -29,7 +30,7 @@
 
     .title {
       color: white;
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       text-align: center;
     }
 
@@ -38,17 +39,174 @@
       text-align: center;
       margin: 10px 0 30px;
       max-width: 250px;
+      font-size: 1.1rem;
     }
 
     .linkWrapper {
       @include flex-col-center;
-      gap: 15px;
+      gap: 20px;
       .link {
         border-radius: 8px;
         background-color: white;
-        padding: 18px 0;
+        padding: 20px 0;
         min-width: 250px;
         text-align: center;
+        font-size: 1.2rem;
+        color: $redCopy;
+      }
+    }
+  }
+}
+
+@media (min-width: $bigMobile) {
+  .homePage {
+    @include flex-col-center;
+    height: calc(100vh - 92px);
+    .homeWrapper {
+      .logoWrapper {
+        max-width: 230px;
+      }
+
+      .iconWrapper {
+        max-width: 230px;
+      }
+
+      .title {
+        font-size: 2rem;
+      }
+
+      .copy {
+        max-width: 280px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $smallTablet) {
+  .homePage {
+    .homeWrapper {
+      .logoWrapper {
+        max-width: 230px;
+      }
+
+      .iconWrapper {
+        max-width: 230px;
+      }
+
+      .title {
+        font-size: 2.2rem;
+        // Weight not set on mobile
+        font-weight: 700;
+      }
+
+      .copy {
+        margin: 10px 0 40px;
+        max-width: 340px;
+        font-size: 1.5rem;
+      }
+
+      .linkWrapper {
+        gap: 25px;
+        .link {
+          padding: 25px 0;
+          min-width: 300px;
+          font-size: 1.3rem;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .homePage {
+    .homeWrapper {
+      .logoWrapper {
+        max-width: 250px;
+      }
+
+      .iconWrapper {
+        margin: 35px 0;
+        max-width: 250px;
+      }
+
+      .title {
+        font-size: 2.3rem;
+      }
+
+      .copy {
+        max-width: 360px;
+        font-size: 1.6rem;
+      }
+
+      .linkWrapper {
+        .link {
+          min-width: 330px;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $laptop) {
+  .homePage {
+    .homeWrapper {
+      .logoWrapper {
+        max-width: 300px;
+      }
+
+      .iconWrapper {
+        margin: 35px 0;
+        max-width: 300px;
+      }
+
+      .title {
+        font-size: 2.3rem;
+      }
+
+      .copy {
+        max-width: 360px;
+        font-size: 1.6rem;
+      }
+
+      .linkWrapper {
+        .link {
+          min-width: 330px;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .homePage {
+    .homeWrapper {
+      .logoWrapper {
+        max-width: 350px;
+      }
+
+      .iconWrapper {
+        margin: 35px 0;
+        max-width: 350px;
+      }
+
+      .title {
+        font-size: 2.7rem;
+      }
+
+      .copy {
+        max-width: 400px;
+        font-size: 1.8rem;
+      }
+
+      .linkWrapper {
+        .link {
+          min-width: 350px;
+          font-size: 1.6rem;
+        }
       }
     }
   }

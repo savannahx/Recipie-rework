@@ -1,33 +1,49 @@
 import { Link } from "react-router-dom"
 import "./nav.scss"
+import { useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
 
 const Nav = () => {
+  let location = useLocation()
+  const [changeBgColor, setChangeBgColor] = useState(false)
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setChangeBgColor(true)
+    }
+  }, [location.pathname])
+
   return (
     <>
-      <section className='py-4 bg-white w-full drop-shadow-[0_5px_10px_rgba(0,0,0,0.25)] fixed bottom-0'>
-        <nav className='w-full'>
-          <ul className='flex justify-evenly'>
-            {/* Go to Home Page Link */}
-            <li>
-              <Link to='/' className='flex flex-col items-center'>
+      <nav className={`nav ${changeBgColor ? "navBGRed" : ""}`}>
+        <ul className='linksWrapper'>
+          {/* Go to Home Page Link */}
+          <Link to='/' className='flex flex-col items-center'>
+            <li className='linkWrapper'>
+              <div className='iconWrapper'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='w-12 h-12'
                   viewBox='0 0 20 20'
-                  fill='#FF5F5F'>
+                  fill={`${changeBgColor ? "#fff" : "#FF5F5F"}`}>
                   <path d='M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z' />
                 </svg>
-                <h3 className='font-light text-myRed'>Home</h3>
-              </Link>
+              </div>
+              <h3
+                className={`${changeBgColor ? "linkTitleWhite" : "linkTitle"}`}>
+                Home
+              </h3>
             </li>
-            {/* Go to Recipies Page Link */}
-            <li>
-              <Link to='/recipies' className='flex flex-col items-center'>
+          </Link>
+          {/* Go to Recipies Page Link */}
+          <Link to='/recipies' className='flex flex-col items-center'>
+            <li className='linkWrapper'>
+              <div className='iconWrapper'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='w-12 h-12'
                   viewBox='0 0 20 20'
-                  fill='#FF5F5F'>
+                  fill={`${changeBgColor ? "#fff" : "#F55D5D"}`}>
                   <path d='M9 2a1 1 0 000 2h2a1 1 0 100-2H9z' />
                   <path
                     fillRule='evenodd'
@@ -35,29 +51,37 @@ const Nav = () => {
                     clipRule='evenodd'
                   />
                 </svg>
-                <h3 className='font-light text-myRed'>Recipies</h3>
-              </Link>
+              </div>
+              <h3
+                className={`${changeBgColor ? "linkTitleWhite" : "linkTitle"}`}>
+                Recipies
+              </h3>
             </li>
-            {/* Go to Favorites Page Link */}
-            <li>
-              <Link to='/favorites' className='flex flex-col items-center'>
+          </Link>
+          {/* Go to Favorites Page Link */}
+          <Link to='/favorites' className='flex flex-col items-center'>
+            <li className='linkWrapper'>
+              <div className='iconWrapper'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='w-12 h-12'
                   viewBox='0 0 20 20'
-                  fill='#FF5F5F'>
+                  fill={`${changeBgColor ? "#fff" : "#FF5F5F"}`}>
                   <path
                     fillRule='evenodd'
                     d='M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z'
                     clipRule='evenodd'
                   />
                 </svg>
-                <h3 className='font-light text-myRed'>Favorites</h3>
-              </Link>
+              </div>
+              <h3
+                className={`${changeBgColor ? "linkTitleWhite" : "linkTitle"}`}>
+                Favorites
+              </h3>
             </li>
-          </ul>
-        </nav>
-      </section>
+          </Link>
+        </ul>
+      </nav>
     </>
   )
 }
