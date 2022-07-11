@@ -1,3 +1,5 @@
+import "./addRecipeForm/recipieTitle.scss"
+
 const ShowRecipiesTitle = ({ title }) => {
   return (
     <>

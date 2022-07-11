@@ -1,8 +1,8 @@
 import Nav from "../layout/Nav"
-import ShowRecipies from "../components/recipiesPageComps/showRecipies"
-import Spacer from "../ui/Spacer"
+// import ShowRecipies from "../components/recipiesPageComps/showRecipies"
 import { useState } from "react"
-import AddRecipe from "../components/recipiesPageComps/addRecipe"
+// import AddRecipe from "../components/recipiesPageComps/addRecipe"
+// import Container from "../ui/Container"
 
 const RecipiesPage = () => {
   // Show or Hide Form that Adds a Recipe
@@ -10,10 +10,10 @@ const RecipiesPage = () => {
 
   return (
     <>
-      <Spacer>
+      {/* <Container>
         {!showForm && <ShowRecipies setShowForm={setShowForm} />}
         {showForm && <AddRecipe setShowForm={setShowForm} />}
-      </Spacer>
+      </Container> */}
       {/* Bottom Nav */}
       <Nav />
     </>

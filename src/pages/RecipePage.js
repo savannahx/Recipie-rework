@@ -1,10 +1,11 @@
 import Logo from "../images/recipie-black.svg"
 import Nav from "../layout/Nav"
-import Spacer from "../ui/Spacer"
 import { motion, AnimatePresence } from "framer-motion"
 import { useContext } from "react"
 import { RecipeContext } from "../context/RecipeContext"
 import { useParams } from "react-router-dom"
+import Container from "../ui/Container"
+import "./recipePage.scss"
 
 const RecipePage = () => {
   const { recipies } = useContext(RecipeContext)
@@ -13,7 +14,7 @@ const RecipePage = () => {
 
   return (
     <>
-      <Spacer>
+      <Container>
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0 }}
@@ -82,7 +83,7 @@ const RecipePage = () => {
             </div>
           </motion.div>
         </AnimatePresence>
-      </Spacer>
+      </Container>
 
       {/* Bottom Nav */}
       <Nav />

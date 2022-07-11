@@ -1,0 +1,66 @@
+@import "the-new-css-reset/css/reset.css";
+
+// Font Family
+* {
+  font-family: "Lato", sans-serif;
+}
+
+// Screen sizes
+$bigMoble: 450px;
+$smallTablet: 640px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1280px;
+$bigScreens: 1536px;
+
+// Colors
+$lightRed: #f87171;
+$red: #e55b5b;
+
+// Mixins
+@mixin flex-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-col-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+@mixin flex-col-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+// Gradient
+$gradient1: -moz-linear-gradient(
+  180deg,
+  rgba(239, 68, 68, 1) 0%,
+  rgba(248, 113, 113, 1) 100%
+);
+$gradient2: -webkit-linear-gradient(
+  180deg,
+  rgba(239, 68, 68, 1) 0%,
+  rgba(248, 113, 113, 1) 100%
+);
+$gradient3: -o-linear-gradient(
+  180deg,
+  rgba(239, 68, 68, 1) 0%,
+  rgba(248, 113, 113, 1) 100%
+);
+$gradient4: linear-gradient(
+  180deg,
+  rgba(239, 68, 68, 1) 0%,
+  rgba(248, 113, 113, 1) 100%
+);

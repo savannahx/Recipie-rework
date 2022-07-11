@@ -257,7 +257,7 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
           <img src={Logo} alt='Recipie Logo' className='w-3/6 sm:w-4/6' />
         </div>
         {/* Form */}
-        <form onSubmit={submitRecipe} className='w-full'>
+        <form onSubmit={submitRecipe} className='max-w-[1000px] mx-auto'>
           {/* Go Back Icon */}
           <div
             onClick={() => setShowForm(false)}

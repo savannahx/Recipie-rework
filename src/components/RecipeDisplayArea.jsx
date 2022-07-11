@@ -1,8 +1,8 @@
 import { useContext } from "react"
-import { RecipeContext } from "../../../context/RecipeContext"
+import { RecipeContext } from "../../context/RecipeContext"
 import Add from "../../../images/add.svg"
-import Card from "../../../ui/Card"
-import Recipe from "../../Recipe"
+import Recipe from "./RecipeCard"
+import "./addRecipeForm/recipeDisplayArea.scss"
 
 const RecipeDisplayArea = ({ setShowForm }) => {
   const { recipies, deleteRecipe, addToFavorites, whichRecipe } =

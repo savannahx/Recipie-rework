@@ -1,3 +1,5 @@
+import "./notifications.scss"
+
 const MessageWrapper = ({ children }) => {
   return (
     <>

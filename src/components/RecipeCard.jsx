@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { excerpt } from "../util/excerpt"
+import "./addRecipeForm/recipeCard.scss"
 
 const Recipe = ({
   listItem,

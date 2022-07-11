@@ -1,15 +1,13 @@
 import Nav from "../layout/Nav"
-import ShowFavorites from "../components/ShowFavorites"
-import Spacer from "../ui/Spacer"
+// import ShowFavorites from "../components/favoritesPageComps/ShowFavorites"
+import Container from "../ui/Container"
 
 const FavoritesPage = () => {
   return (
     <>
-      <Spacer>
-        <ShowFavorites />
-      </Spacer>
+      <Container>{/* <ShowFavorites /> */}</Container>
       {/* Bottom Nav */}
-      <Nav />
+      {/* <Nav /> */}
     </>
   )
 }
