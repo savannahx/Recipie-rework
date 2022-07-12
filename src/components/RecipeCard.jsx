@@ -3,7 +3,16 @@ import { excerpt } from "../util/excerpt"
 import "./recipeCard.scss"
 import { BsClockHistory, BsTrash, BsStar } from "react-icons/bs"
 
-const RecipeCard = ({ values, recipe }) => {
+const RecipeCard = ({
+  values: {
+    deleteFromFavorites,
+    isFavRecipe,
+    deleteRecipe,
+    addToFavorites,
+    listItem,
+  },
+  recipe,
+}) => {
   return (
     <>
       <div className='card-wrapper'>
@@ -12,25 +21,25 @@ const RecipeCard = ({ values, recipe }) => {
           <img className='img' src={recipe.img} alt={recipe.recipeName} />
         </div>
         {/* SVGs favorite-delete */}
-        <div className='absolute-them-for-now'>
-          {/* {!values.isFavRecipe && (
+        <div className='action-button-area'>
+          {isFavRecipe && (
             <button
-              onClick={(e) => deleteFromFavorites(values.listItem.id)}
-              className='absolute grid w-12 h-12 bg-white border-2 rounded-full top-3 right-2 place-content-center hover:bg-red-400'>
-              <BsTrash />
-            </button>
-          )} */}
-          {values.isFavRecipe && (
-            <button
-              onClick={() => values.deleteRecipe(values.listItem.id)}
-              className='absolute grid w-12 h-12 bg-white border-2 rounded-full top-3 right-2 place-content-center hover:bg-red-400'>
+              onClick={(e) => deleteFromFavorites(listItem.id)}
+              className='action-button'>
               <BsTrash />
             </button>
           )}
-          {values.isFavRecipe && (
+          {!isFavRecipe && (
             <button
-              onClick={() => values.addToFavorites(values.listItem)}
-              className='absolute grid w-12 h-12 bg-white border-2 rounded-full top-3 right-16 place-content-center hover:bg-red-400'>
+              onClick={() => deleteRecipe(listItem.id)}
+              className='action-button'>
+              <BsTrash />
+            </button>
+          )}
+          {!isFavRecipe && (
+            <button
+              onClick={() => addToFavorites(listItem)}
+              className='action-button'>
               <BsStar />
             </button>
           )}

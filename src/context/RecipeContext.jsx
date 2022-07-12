@@ -17,7 +17,7 @@ export const RecipeContext = createContext()
 const RecipeContextProvider = ({ children }) => {
   const [recipies, setRecipies] = useState([])
   const [favorites, setFavorites] = useState([])
-  const [isFavRecipe, setIsFavRecipe] = useState(false)
+  const [isFavRecipe, setIsFavRecipe] = useState(true)
   const [showNotification, setShowNotification] = useState(false)
   const [message, setMessage] = useState("")
   const [showForm, setShowForm] = useState(false)
@@ -42,7 +42,6 @@ const RecipeContextProvider = ({ children }) => {
     fetchFavorites()
     fetchRecipies()
   }, [])
-
   const addRecipe = (data, imageFile) => {
     const recipeFileRef = ref(storage, `recipies/${imageFile.name}`)
     uploadBytes(recipeFileRef, imageFile)

@@ -33,6 +33,12 @@ $offGray: #5e5e5e;
   justify-content: flex-start;
   align-items: center;
 }
+@mixin flex-row-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
 @mixin flex-col-center {
   display: flex;
   flex-direction: column;

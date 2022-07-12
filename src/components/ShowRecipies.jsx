@@ -13,7 +13,7 @@ const ShowRecipies = ({ title, values }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className='showRecipiesWrapper'>
+          className='recipe-display-wrapper'>
           <RecipieLogo />
           <RecipieTitle title={title} />
           <RecipeDisplayArea values={values} />

@@ -30,12 +30,6 @@
   }
 }
 
-@media (min-width: $bigMobile) {
-  .nav {
-    position: fixed;
-  }
-}
-
 .navBGRed {
   background-color: $red;
 }

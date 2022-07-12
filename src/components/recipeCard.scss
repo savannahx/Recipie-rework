@@ -10,8 +10,33 @@
   scroll-snap-stop: always;
   flex: 0 0 auto;
 
-  .absolute-them-for-now {
+  .action-button-area {
     position: absolute;
+    top: 10px;
+    right: 10px;
+    @include flex-row-end;
+    gap: 20px;
+
+    .action-button {
+      @include flex-row-center;
+      background-color: white;
+      font-size: 1.5rem;
+      padding: 7px;
+      border-radius: 100%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $lightRed;
+      }
+
+      &:active {
+        background-color: $red;
+      }
+    }
+
+    .active-action-button {
+      background-color: $red;
+    }
   }
 
   .img-wrapper {
@@ -60,6 +85,91 @@
       border-radius: 8px;
       font-size: 1.2rem;
       font-weight: 700;
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .card-wrapper {
+    max-width: 100%;
+
+    .action-button-area {
+      gap: 15px;
+
+      .action-button {
+        font-size: 1.7rem;
+        padding: 10px;
+      }
+    }
+
+    .img-wrapper {
+      .img {
+        height: 250px;
+      }
+    }
+    .card-content {
+      padding: 25px;
+
+      .prep-time-area {
+        .clock-icon {
+          font-size: 1.7rem;
+        }
+
+        .prep-time-copy {
+          font-size: 1.4rem;
+        }
+      }
+
+      .recipe-title {
+        font-size: 1.5rem;
+      }
+
+      .recipe-description {
+        font-size: 1.3rem;
+      }
+
+      .recipe-link {
+        padding: 20px 50px;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $laptop) {
+  .card-wrapper {
+    max-width: 100%;
+
+    .img-wrapper {
+      .img {
+        height: 300px;
+      }
+    }
+    .card-content {
+      padding: 25px;
+
+      .prep-time-area {
+        .clock-icon {
+          font-size: 1.7rem;
+        }
+
+        .prep-time-copy {
+          font-size: 1.4rem;
+        }
+      }
+
+      .recipe-title {
+        font-size: 1.5rem;
+      }
+
+      .recipe-description {
+        font-size: 1.3rem;
+      }
+
+      .recipe-link {
+        padding: 20px 50px;
+        font-size: 1.3rem;
+      }
     }
   }
 }

@@ -1,11 +1,27 @@
 @import "../index.scss";
 
-.recipe-wrapper {
+.horizontal-scrolling-container-and-wrapper {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  flex-direction: row;
+  -webkit-overflow-scrolling: touch;
+  gap: 30px;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .add-new-recipe-card {
     position: fixed;
     bottom: 100px;
     right: 20px;
     z-index: 10;
+    cursor: pointer;
 
     .add-icon {
       color: $red;
@@ -14,22 +30,44 @@
       filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
     }
   }
+}
 
-  .horizontal-scrolling-container {
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    flex-direction: row;
-    -webkit-overflow-scrolling: touch;
+@media (min-width: $tablet) {
+  .horizontal-scrolling-container-and-wrapper {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    scroll-snap-type: x mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-      display: none;
+
+    .add-new-recipe-card {
+      @include flex-row-center;
+      position: relative;
+      bottom: 0;
+      right: 0;
+      z-index: 0;
+      background-color: white;
+      border-radius: 12px;
+
+      .add-icon {
+        display: block;
+        color: $red;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+      }
     }
+  }
+}
+
+@media (min-width: $laptop) {
+  .horizontal-scrolling-container-and-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: $desktop) {
+  .horizontal-scrolling-container-and-wrapper {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

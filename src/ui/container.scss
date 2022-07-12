@@ -1,5 +1,23 @@
+@import "../index.scss";
+
 .container {
   margin: 0 auto;
   max-width: 100%;
   padding: 30px 20px;
+}
+
+@media (min-width: $tablet) {
+  .container {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 40px;
+  }
+}
+
+@media (min-width: $desktop) {
+  .container {
+    margin: 0 auto;
+    max-width: 1550px;
+    padding: 60px 30px;
+  }
 }

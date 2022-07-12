@@ -7,3 +7,27 @@
     width: 100%;
   }
 }
+
+@media (min-width: $smallTablet) {
+  .logo-wrapper {
+    max-width: 150px;
+  }
+}
+
+@media (min-width: $tablet) {
+  .logo-wrapper {
+    max-width: 200px;
+  }
+}
+
+@media (min-width: $laptop) {
+  .logo-wrapper {
+    max-width: 230px;
+  }
+}
+
+@media (min-width: $desktop) {
+  .logo-wrapper {
+    max-width: 260px;
+  }
+}
