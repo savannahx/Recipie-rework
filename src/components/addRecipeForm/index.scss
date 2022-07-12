@@ -1,0 +1,28 @@
+@import "../../index.scss";
+
+.form-wrapper {
+  margin: 0 auto;
+  padding: 5px;
+  max-width: 950px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  //   background-color: lightblue;
+
+  .arrow-back {
+    font-size: 2rem;
+    margin: 10px 0;
+    cursor: pointer;
+    display: inline-block;
+  }
+}
+
+@media (min-width: $tablet) {
+  .form-wrapper {
+    padding: 40px;
+
+    .arrow-back {
+      font-size: 2.5rem;
+    }
+  }
+}

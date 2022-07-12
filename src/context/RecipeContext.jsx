@@ -19,7 +19,7 @@ const RecipeContextProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([])
   const [showNotification, setShowNotification] = useState(false)
   const [message, setMessage] = useState("")
-  const [showForm, setShowForm] = useState(false)
+  const [showForm, setShowForm] = useState(true)
   const [isFavRecipe, setIsFavRecipe] = useState(true)
 
   useEffect(() => {

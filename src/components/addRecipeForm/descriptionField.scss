@@ -1,0 +1,33 @@
+@import "../../index.scss";
+
+.description-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .textarea-field {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: $offWhite;
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: $smallTablet) {
+  .description-wrapper {
+    .textarea-field {
+      height: 60px;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .description-wrapper {
+    .textarea-field {
+      height: 70px;
+      font-size: 1.6rem;
+    }
+  }
+}

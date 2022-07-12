@@ -1,0 +1,106 @@
+@import "../../index.scss";
+
+.ingredients-area {
+  .ingredients-input-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    .ingredients-input-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .ingredients-input {
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        height: 50px;
+        background-color: $offWhite;
+        padding: 2px 10px;
+        font-size: 1.2rem;
+      }
+    }
+    .ingredients-button {
+      padding: 0 30px;
+      height: 50px;
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: white;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+  }
+  .ingredients-output-area {
+    @include flex-row-start;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    max-width: 90%;
+
+    .ingredient-styles {
+      margin-top: 15px;
+      padding: 7px 20px;
+      background-color: $lightRed;
+      border-radius: 20px;
+      color: white;
+      margin-bottom: -15px;
+    }
+  }
+}
+
+@media (min-width: $smallTablet) {
+  .ingredients-area {
+    .ingredients-input-area {
+      .ingredients-input-wrapper {
+        .ingredients-input {
+          height: 60px;
+          font-size: 1.3rem;
+        }
+      }
+
+      .name-error-message {
+        font-size: 1.2rem;
+      }
+      .ingredients-button {
+        height: 60px;
+        font-size: 1.3rem;
+      }
+    }
+    .ingredients-output-area {
+      gap: 15px;
+
+      .ingredient-styles {
+        padding: 6px 20px;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .ingredients-area {
+    .ingredients-input-area {
+      .ingredients-input-wrapper {
+        .ingredients-input {
+          height: 70px;
+          font-size: 1.6rem;
+        }
+      }
+      .name-error-message {
+        font-size: 1.2rem;
+      }
+      .ingredients-button {
+        height: 70px;
+        font-size: 1.4rem;
+      }
+    }
+    .ingredients-output-area {
+      gap: 15px;
+
+      .ingredient-styles {
+        padding: 7px 20px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

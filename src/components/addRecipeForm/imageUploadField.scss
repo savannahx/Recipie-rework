@@ -1,0 +1,74 @@
+@import "../../index.scss";
+
+.image-field-wrapper {
+  margin: 20px auto;
+  width: 100%;
+  cursor: pointer;
+
+  .label-wrapper {
+    background-color: $offWhite;
+    @include flex-col-center;
+    border: 1px dashed rgba(0, 0, 0, 0.5);
+    padding: 40px 0;
+    border-radius: 10px;
+    .image-icon {
+      max-width: 70px;
+    }
+    .browse-button {
+      margin-top: 10px;
+      padding: 10px 30px;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      border-radius: 10px;
+    }
+    .img-input {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: $smallTablet) {
+  .image-field-wrapper {
+    margin: 30px auto;
+
+    .label-wrapper {
+      .image-icon {
+        max-width: 80px;
+      }
+      .browse-button {
+        margin-top: 20px;
+        padding: 15px 40px;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .image-field-wrapper {
+    .label-wrapper {
+      .image-icon {
+        max-width: 100px;
+      }
+      .browse-button {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $laptop) {
+  .image-field-wrapper {
+    margin: 30px auto;
+
+    .label-wrapper {
+      .image-icon {
+        max-width: 120px;
+      }
+      .browse-button {
+        padding: 20px 50px;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import "../../index.scss";
+
+.submit-button {
+  padding: 0 30px;
+  height: 70px;
+  width: 100%;
+  text-align: center;
+  //   font-weight: 700;
+  font-size: 1.4rem;
+  background-color: $red;
+  border-radius: 10px;
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+@media (min-width: $tablet) {
+  .submit-button {
+    font-size: 1.6rem;
+  }
+}

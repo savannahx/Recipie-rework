@@ -47,7 +47,8 @@ const RecipiesPage = () => {
 
   return (
     <>
-      <section className='recipies-page'>
+      <section
+        className={`${showForm ? "recipies-page-white" : "recipies-page"}`}>
         <Container>
           {!showForm && (
             <ShowRecipies title='Your Recipies' values={propValues} />
