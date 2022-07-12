@@ -12,6 +12,7 @@ const RecipiesPage = () => {
   let location = useLocation()
   // Get Constants and Functions from Recipe Context - Firestore
   const {
+    favorites,
     recipies,
     deleteRecipe,
     addToFavorites,
@@ -24,7 +25,8 @@ const RecipiesPage = () => {
     deleteFromFavorites,
   } = useContext(RecipeContext)
 
-  const values = {
+  const propValues = {
+    favorites,
     recipies,
     deleteRecipe,
     addToFavorites,
@@ -47,7 +49,9 @@ const RecipiesPage = () => {
     <>
       <section className='recipies-page'>
         <Container>
-          {!showForm && <ShowRecipies title='Your Recipies' values={values} />}
+          {!showForm && (
+            <ShowRecipies title='Your Recipies' values={propValues} />
+          )}
           {showForm && <AddRecipe setShowForm={setShowForm} />}
         </Container>
         {/* Bottom Nav */}

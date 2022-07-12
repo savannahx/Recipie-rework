@@ -5,8 +5,13 @@ import ChefImage from "../images/Chef-icon.svg"
 import { Link } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import Container from "../ui/Container"
+import { useEffect } from "react"
 
 const HomePage = () => {
+  useEffect(() => {
+    console.log("homepage Ran")
+  }, [])
+
   return (
     <>
       <AnimatePresence>

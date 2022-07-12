@@ -17,10 +17,10 @@ export const RecipeContext = createContext()
 const RecipeContextProvider = ({ children }) => {
   const [recipies, setRecipies] = useState([])
   const [favorites, setFavorites] = useState([])
-  const [isFavRecipe, setIsFavRecipe] = useState(true)
   const [showNotification, setShowNotification] = useState(false)
   const [message, setMessage] = useState("")
   const [showForm, setShowForm] = useState(false)
+  const [isFavRecipe, setIsFavRecipe] = useState(true)
 
   useEffect(() => {
     const fetchRecipies = async () => {
@@ -55,7 +55,6 @@ const RecipeContextProvider = ({ children }) => {
               ingredients: data.ingredients,
               difficulty: data.difficulty,
               prepTime: data.minutes,
-              url: data.recipeName.toLowerCase(),
             })
           }
           sendRecipe()
