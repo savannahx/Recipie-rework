@@ -1,4 +1,4 @@
-## Recipie is a portfolio app where you can upload, delete, and favorite your food recipies and is using custom written real-time validation to get the user correct data.
+## Recipie is a portfolio app where you can upload, delete, and favorite your food recipies.
 
 ## Functionality:
 
@@ -11,7 +11,7 @@ A) You can upload a recipe with the information below:
 5. Image of food
 6. Recipe description
 
-- The upload form uses real time validation which is custom written - no validation libraries were used on this one.
+- The upload form uses real time validation - it's custom written, no form validation libraries were used on this one - Make sure you try it!
 
 B) You can put a recipe in your "favorites" list by clicking the star icon on the recipe card
 
