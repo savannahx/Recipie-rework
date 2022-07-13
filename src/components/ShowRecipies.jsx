@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion"
 import "./showRecipies.scss"
-import Notifications from "../ui/Notifications"
+import NotificationsWrapper from "../ui/NotificationsWrapper"
 import RecipeDisplayArea from "./RecipeDisplayArea"
 import RecipieLogo from "./RecipieLogo"
 import RecipieTitle from "./RecipieTitle"
@@ -19,7 +19,7 @@ const ShowRecipies = ({ title, values }) => {
           <RecipeDisplayArea values={values} />
           {/* Notifications Area - Fixed to Bottom */}
           {values.showNotification && (
-            <Notifications>{values.message}</Notifications>
+            <NotificationsWrapper>{values.message}</NotificationsWrapper>
           )}
         </motion.div>
       </AnimatePresence>

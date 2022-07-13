@@ -1,17 +1,20 @@
 import ErrorMessage from "./ErrorMessage"
 import Label from "./Label"
+import { v4 as uuidv4 } from "uuid"
 import "./ingredientsField.scss"
 
 const RecipeIngredientsField = ({
   recipeIngredient,
-  addIngredients,
   recipeIngredients,
   recipeIngredientError,
   emptyIngredientsError,
-  deleteIngredient,
   setRecipeIngredient,
   setRecipeIngredientValid,
   setRecipeIngredientError,
+  recipeIngredientValid,
+  setEmptyIngredientsError,
+  setRecipeIngredients,
+  setRecipeIngredientsValid,
 }) => {
   const alphaNumSpaceRegex = /^[A-Za-z0-9 _]+$/
   //   Validate Ingredient
@@ -41,6 +44,30 @@ const RecipeIngredientsField = ({
       setRecipeIngredientError(
         "Recipe ingredients must be letters, numbers and spaces only"
       )
+    }
+  }
+  // Add Ingredients
+  const addIngredients = () => {
+    if (recipeIngredientValid) {
+      setEmptyIngredientsError("")
+      setRecipeIngredients([
+        ...recipeIngredients,
+        { ingName: recipeIngredient, ingId: uuidv4() },
+      ])
+      setRecipeIngredientsValid(true)
+      setRecipeIngredient("")
+      setRecipeIngredientError("")
+    }
+  }
+  //   Delete Ingredients
+  const deleteIngredient = (id) => {
+    const newIngredients = recipeIngredients.filter(
+      (ingredient) => ingredient.ingId !== id
+    )
+    setRecipeIngredients(newIngredients)
+    if (newIngredients.length === 0) {
+      setRecipeIngredientsValid(false)
+      setRecipeIngredientError("Please add at least one recipe ingredient")
     }
   }
 
@@ -78,7 +105,7 @@ const RecipeIngredientsField = ({
               <div key={ingredient.ingId} className='ingredient-styles'>
                 <span>{ingredient.ingName}</span>
                 <span
-                  onClick={() => deleteIngredient(ingredient.id)}
+                  onClick={() => deleteIngredient(ingredient.ingId)}
                   className='text-xl cursor-pointer'>
                   {" "}
                   x

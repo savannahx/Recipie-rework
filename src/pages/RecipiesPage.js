@@ -2,7 +2,7 @@ import Nav from "../layout/Nav"
 import ShowRecipies from "../components/ShowRecipies"
 import { useContext, useEffect } from "react"
 import { useLocation } from "react-router-dom"
-import AddRecipe from "../components/addRecipeForm"
+import AddRecipeForm from "../components/addRecipeForm"
 import Container from "../ui/Container"
 import "./recipiesPage.scss"
 import { RecipeContext } from "../context/RecipeContext"
@@ -12,6 +12,7 @@ const RecipiesPage = () => {
   let location = useLocation()
   // Get Constants and Functions from Recipe Context - Firestore
   const {
+    addRecipe,
     favorites,
     recipies,
     deleteRecipe,
@@ -26,6 +27,7 @@ const RecipiesPage = () => {
   } = useContext(RecipeContext)
 
   const propValues = {
+    addRecipe,
     favorites,
     recipies,
     deleteRecipe,
@@ -53,7 +55,9 @@ const RecipiesPage = () => {
           {!showForm && (
             <ShowRecipies title='Your Recipies' values={propValues} />
           )}
-          {showForm && <AddRecipe setShowForm={setShowForm} />}
+          {showForm && (
+            <AddRecipeForm setShowForm={setShowForm} addRecipe={addRecipe} />
+          )}
         </Container>
         {/* Bottom Nav */}
       </section>

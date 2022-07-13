@@ -24,21 +24,21 @@ const RecipeCard = ({
         <div className='action-button-area'>
           {isFavRecipe && (
             <button
-              onClick={(e) => deleteFromFavorites(listItem.id)}
+              onClick={(e) => deleteFromFavorites(recipe.id)}
               className='action-button'>
               <BsTrash />
             </button>
           )}
           {!isFavRecipe && (
             <button
-              onClick={() => deleteRecipe(listItem.id)}
+              onClick={() => deleteRecipe(recipe.id)}
               className='action-button'>
               <BsTrash />
             </button>
           )}
           {!isFavRecipe && (
             <button
-              onClick={() => addToFavorites(listItem)}
+              onClick={() => addToFavorites(recipe)}
               className='action-button'>
               <BsStar />
             </button>

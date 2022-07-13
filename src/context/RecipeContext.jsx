@@ -6,9 +6,10 @@ import {
   collection,
   doc,
   setDoc,
-  getDocs,
+  // getDocs,
   getDoc,
   deleteDoc,
+  onSnapshot,
 } from "firebase/firestore"
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage"
 
@@ -22,32 +23,55 @@ const RecipeContextProvider = ({ children }) => {
   const [showForm, setShowForm] = useState(false)
   const [isFavRecipe, setIsFavRecipe] = useState(true)
 
+  // Fetch recipies and favorites on mount
+  // useEffect(() => {
+  //   const fetchRecipies = async () => {
+  //     try {
+  //       const data = await getDocs(collection(db, "recipies"))
+  //       setRecipies(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+  //     } catch (err) {
+  //       console.error(err)
+  //     }
+  //   }
+  //   const fetchFavorites = async () => {
+  //     try {
+  //       const data = await getDocs(collection(db, "favorites"))
+  //       setFavorites(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+  //     } catch (err) {
+  //       console.log(err)
+  //     }
+  //   }
+  //   fetchFavorites()
+  //   fetchRecipies()
+  // }, [])
+
+  // Fetch recipies and favorites on mount
   useEffect(() => {
-    const fetchRecipies = async () => {
-      try {
-        const data = await getDocs(collection(db, "recipies"))
-        setRecipies(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-      } catch (err) {
-        console.error(err)
-      }
-    }
-    const fetchFavorites = async () => {
-      try {
-        const data = await getDocs(collection(db, "favorites"))
-        setFavorites(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    fetchFavorites()
-    fetchRecipies()
+    let recipies = []
+    // This uses forEach, below we use map, both ways are valid
+    const unsubscribe = onSnapshot(collection(db, "recipies"), (snapshot) => {
+      snapshot.forEach((doc) => {
+        recipies.push({ ...doc.data(), id: doc.id })
+      })
+      setRecipies(recipies)
+      recipies = []
+    })
+    // If using map then need to use on docs otherwise use the above way with forEach...
+    const unsub = onSnapshot(collection(db, "favorites"), (snapshot) => {
+      setFavorites(
+        snapshot.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id }
+        })
+      )
+    })
   }, [])
+
   const addRecipe = (data, imageFile) => {
-    const recipeFileRef = ref(storage, `recipies/${imageFile.name}`)
+    const recipeFileRef = ref(storage, `recipies/${data.imgName}`)
     uploadBytes(recipeFileRef, imageFile)
       .then(() => {
         getDownloadURL(ref(recipeFileRef)).then((url) => {
-          const sendRecipe = async () => {
+          const sendRecipeData = async () => {
             await setDoc(doc(db, "recipies", uuidv4()), {
               img: url,
               recipeName: data.recipeName,
@@ -57,7 +81,7 @@ const RecipeContextProvider = ({ children }) => {
               prepTime: data.minutes,
             })
           }
-          sendRecipe()
+          sendRecipeData()
           const runMessages = () => {
             setShowNotification(true)
             setMessage("Added to recipies")

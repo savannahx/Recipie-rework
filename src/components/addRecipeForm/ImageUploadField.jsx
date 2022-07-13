@@ -14,7 +14,6 @@ const ImageUploadField = ({
   // Image Validation
   const imageRegex = /(gif|jpe?g|tiff?|png|webp|bmp)$/i
   const recipeImageValidation = (e) => {
-    console.log(e.target.files[0].name)
     if (e.target.files[0].name.match(imageRegex)) {
       setRecipeImage(e.target.files[0].name)
       setImageFile(e.target.files[0])

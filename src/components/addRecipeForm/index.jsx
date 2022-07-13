@@ -1,6 +1,5 @@
 import { BsArrowLeftCircleFill } from "react-icons/bs"
 import RecipieLogo from "../RecipieLogo"
-import { v4 as uuidv4 } from "uuid"
 import { useState } from "react"
 import "./index.scss"
 import NameField from "./NameField"
@@ -19,6 +18,10 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
   const [recipeIngredient, setRecipeIngredient] = useState("")
   const [recipeIngredientError, setRecipeIngredientError] = useState("")
   const [recipeIngredientValid, setRecipeIngredientValid] = useState(false)
+  // Ingredients List State
+  const [recipeIngredients, setRecipeIngredients] = useState([])
+  const [emptyIngredientsError, setEmptyIngredientsError] = useState("")
+  const [recipeIngredientsValid, setRecipeIngredientsValid] = useState(false)
   // Difficulty State
   const [recipeDifficulty, setRecipeDifficulty] = useState("easy")
   const [recipeDifficultyError, setRecipeDifficultyError] = useState("")
@@ -38,44 +41,19 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
   const [recipeDescription, setRecipeDescription] = useState("")
   const [recipeDescriptionError, setRecipeDescriptionError] = useState("")
   const [recipeDescriptionValid, setRecipeDescriptionValid] = useState(false)
-  // Ingredients List State
-  const [recipeIngredients, setRecipeIngredients] = useState([])
-  const [emptyIngredientsError, setEmptyIngredientsError] = useState("")
 
-  // Add Ingredients
-  const addIngredients = () => {
-    if (recipeIngredientValid) {
-      setEmptyIngredientsError("")
-      setRecipeIngredients([
-        ...recipeIngredients,
-        { ingName: recipeIngredient, ingId: uuidv4() },
-      ])
-      setRecipeIngredient("")
-    }
-  }
-  //   Delete Ingredients
-  const deleteIngredient = (id) => {
-    const newIngredients = recipeIngredients.filter(
-      (ingredient) => ingredient.id !== id
-    )
-    setRecipeIngredients(newIngredients)
-    if (recipeIngredients.length === 1) {
-      setRecipeIngredientValid(false)
-      setEmptyIngredientsError("Please include at least 1 ingredient")
-    }
-  }
-
-  // Last check
+  // put all valid checker variables in an object so we can loop through it using the "every" JS method on an "Object.values" and check if all values are true - means they passed validation
   const valids = {
-    recipeName: recipeNameValid,
-    recipeIngredient: recipeIngredientValid,
-    recipeDifficulty: recipeDifficultyValid,
-    recipePrepTime: recipePrepTimeValid,
-    recipeImage: recipeImageValid,
-    recipeDescription: recipeDescriptionValid,
+    name: recipeNameValid,
+    ingredients: recipeIngredientsValid,
+    difficulty: recipeDifficultyValid,
+    prepTime: recipePrepTimeValid,
+    image: recipeImageValid,
+    description: recipeDescriptionValid,
   }
+  // Create an object that holds all user input data
   const data = {
-    img: recipeImage,
+    imgName: recipeImage,
     minutes: recipePrepTime,
     difficulty: recipeDifficulty,
     recipeName: recipeName,
@@ -87,50 +65,50 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
   const submitRecipe = (e) => {
     e.preventDefault()
 
+    // Check if every value is true in the valids object
     const validData = Object.values(valids).every((option) => option === true)
-
+    // If all data valid then submit
     if (validData) {
       addRecipe(data, imageFile)
 
+      // Reset State
       setRecipeName("")
       setRecipeIngredients([])
       setRecipeDifficulty("easy")
       setRecipePrepTime("")
       setRecipeImage("")
       setRecipeDescription("")
-
+      // Reset Valids
       setRecipeNameValid(false)
-      setRecipeIngredientValid(false)
+      setRecipeIngredientsValid(false)
       setRecipePrepTimeValid(false)
       setRecipeDescriptionValid(false)
       setRecipeImageValid(false)
-
+      // scroll top the top
       window.scrollTo(0, 0)
       // Takes you back to recipe screen
       setShowForm(false)
+      // If not all values in valids object are true the run checks and show appropriate error messages
     } else {
       let keys = Object.keys(valids)
       keys.forEach((key) => {
         if (valids[key] === false) {
-          if (key === "recipeName") {
+          if (key === "name") {
             setRecipeNameError("Please provide a recipe name")
           }
-          if (key === "recipeImage") {
+          if (key === "image") {
             setRecipeImageError("Please provide an image")
           }
-          if (key === "recipeIngredient") {
+          if (key === "ingredients") {
             setRecipeIngredientError("Please provide at least 1 ingredient")
           }
-          if (key === "recipeDifficulty") {
+          if (key === "difficulty") {
             setRecipeDifficultyError("Please choose difficulty")
           }
-          if (key === "recipePrepTime") {
+          if (key === "prepTime") {
             setRecipePrepTimeError("Please provide valid minutes")
           }
-          if (key === "recipeImage") {
-            setRecipeImageError("Please upload an image")
-          }
-          if (key === "recipeDescription") {
+          if (key === "description") {
             setRecipeDescriptionError("Please provide a recipe description")
           }
         }
@@ -159,14 +137,16 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
           {/* Ingredients */}
           <IngredientsField
             recipeIngredient={recipeIngredient}
-            addIngredients={addIngredients}
             recipeIngredients={recipeIngredients}
             recipeIngredientError={recipeIngredientError}
             emptyIngredientsError={emptyIngredientsError}
-            deleteIngredient={deleteIngredient}
             setRecipeIngredient={setRecipeIngredient}
             setRecipeIngredientError={setRecipeIngredientError}
             setRecipeIngredientValid={setRecipeIngredientValid}
+            recipeIngredientValid={recipeIngredientValid}
+            setEmptyIngredientsError={setEmptyIngredientsError}
+            setRecipeIngredients={setRecipeIngredients}
+            setRecipeIngredientsValid={setRecipeIngredientsValid}
           />
           {/* Difficulty & Prep Time */}
           <DifficultyPrepTimeFields
