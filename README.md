@@ -1,4 +1,4 @@
-Recipie is a portfolio app where you can upload, delete, and favorite your food recipies and is using custom written real-time validation to get the user correct data.
+## Recipie is a portfolio app where you can upload, delete, and favorite your food recipies and is using custom written real-time validation to get the user correct data.
 
 ## Functionality:
 
@@ -15,26 +15,22 @@ A) You can upload a recipe with the information below:
 
 ---
 
-## B) You can put a recipe in your "favorites" list by clicking the star icon on the recipe card
+B) You can put a recipe in your "favorites" list by clicking the star icon on the recipe card
 
-## C) You can delete a recipe by clicking on the trash icon on a recipe card
+---
+
+C) You can delete a recipe by clicking on the trash icon on a recipe card
 
 - If you delete a favorite recipe it is removed from favorites but not from the recipies list
 - If you delete a recipe from the recipies list that you had also made favorite before, this recipe is deleted from both recipies list and favorites list.
-
----
 
 ## Technologies used:
 
 Front-end:
 React - with Create-React-App
 
----
-
 Backend:
 Firebase - Firestore
-
----
 
 ## Libraries/Packages:
 
