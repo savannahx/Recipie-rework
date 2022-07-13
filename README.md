@@ -13,11 +13,7 @@ A) You can upload a recipe with the information below:
 
 - The upload form uses real time validation which is custom written - no validation libraries were used on this one.
 
----
-
 B) You can put a recipe in your "favorites" list by clicking the star icon on the recipe card
-
----
 
 C) You can delete a recipe by clicking on the trash icon on a recipe card
 
