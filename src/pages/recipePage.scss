@@ -1,6 +1,8 @@
 @import "../index.scss";
 
 .recipe-page-wrapper {
+  min-height: 100vh;
+  margin-bottom: 100px;
   .recipe-grid-wrapper {
     margin-top: 20px;
 
@@ -58,6 +60,7 @@
 
 @media (min-width: $smallTablet) {
   .recipe-page-wrapper {
+    margin-bottom: 0px;
     .recipe-grid-wrapper {
       margin-top: 50px;
 

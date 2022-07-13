@@ -1,0 +1,6 @@
+@import "../index.scss";
+
+.spinner {
+  @include flex-row-center;
+  height: 100vh;
+}

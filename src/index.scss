@@ -1,10 +1,5 @@
 @import "the-new-css-reset/css/reset.css";
 
-// Font Family
-* {
-  font-family: "Lato", sans-serif;
-}
-
 // Screen sizes
 $bigMobile: 450px;
 $smallTablet: 640px;
@@ -20,6 +15,11 @@ $redCopy: #870202;
 $offWhite: #f3f3f3;
 $offGray: #5e5e5e;
 $lightGray: #9f9f9f;
+
+// Globals
+* {
+  font-family: "Lato", sans-serif;
+}
 
 // Mixins
 @mixin flex-row-center {

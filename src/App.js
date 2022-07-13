@@ -2,40 +2,48 @@ import { Route, Routes } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import RecipiesPage from "./pages/RecipiesPage"
 import RecipePage from "./pages/RecipePage"
-import RecipeContextProvider from "./context/RecipeContext"
 import FavoritesPage from "./pages/FavoritesPage"
+import Spinner from "./ui/Spinner"
+import { useContext } from "react"
+import { RecipeContext } from "./context/RecipeContext"
 
 function App() {
+  const { isLoading } = useContext(RecipeContext)
+
   return (
     <>
       <Routes>
         <Route
           path='/'
           element={
-            <RecipeContextProvider>
-              <HomePage />
-            </RecipeContextProvider>
+            <>
+              {isLoading && <Spinner />}
+              {!isLoading && <HomePage />}
+            </>
           }></Route>
         <Route
           path='/recipies'
           element={
-            <RecipeContextProvider>
-              <RecipiesPage />
-            </RecipeContextProvider>
-          }></Route>
-        <Route
-          path='/recipies/:recipeId'
-          element={
-            <RecipeContextProvider>
-              <RecipePage />
-            </RecipeContextProvider>
+            <>
+              {isLoading && <Spinner />}
+              {!isLoading && <RecipiesPage />}
+            </>
           }></Route>
         <Route
           path='/favorites'
           element={
-            <RecipeContextProvider>
-              <FavoritesPage />
-            </RecipeContextProvider>
+            <>
+              {isLoading && <Spinner />}
+              {!isLoading && <FavoritesPage />}
+            </>
+          }></Route>
+        <Route
+          path='/recipies/:recipeId'
+          element={
+            <>
+              {isLoading && <Spinner />}
+              {!isLoading && <RecipePage />}
+            </>
           }></Route>
       </Routes>
     </>

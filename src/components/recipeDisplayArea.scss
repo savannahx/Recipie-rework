@@ -30,6 +30,11 @@
       filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
     }
   }
+
+  .empty-list {
+    font-size: 1.3rem;
+    font-style: italic;
+  }
 }
 
 @media (min-width: $tablet) {
@@ -55,6 +60,10 @@
         margin: 0 auto;
         filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
       }
+    }
+    .empty-list {
+      font-size: 1.6rem;
+      font-style: italic;
     }
   }
 }

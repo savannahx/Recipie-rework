@@ -24,6 +24,7 @@ const RecipiesPage = () => {
     showForm,
     setShowForm,
     deleteFromFavorites,
+    isInFavorites,
   } = useContext(RecipeContext)
 
   const propValues = {
@@ -39,6 +40,7 @@ const RecipiesPage = () => {
     showForm,
     setShowForm,
     deleteFromFavorites,
+    isInFavorites,
   }
 
   useEffect(() => {
