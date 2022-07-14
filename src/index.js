@@ -9,11 +9,11 @@ import RecipeContextProvider from "./context/RecipeContext"
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ScrollToTop />
-      <RecipeContextProvider>
+    <RecipeContextProvider>
+      <BrowserRouter>
+        <ScrollToTop />
         <App />
-      </RecipeContextProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </RecipeContextProvider>
   </React.StrictMode>
 )

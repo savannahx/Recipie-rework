@@ -4,3 +4,15 @@
   @include flex-row-center;
   height: 100vh;
 }
+
+.smallerSpinner {
+  @include flex-row-center;
+  margin-top: 15px;
+}
+
+@media (min-width: $smallTablet) {
+  .smallerSpinner {
+    @include flex-row-center;
+    margin-top: 30px;
+  }
+}

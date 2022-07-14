@@ -1,5 +1,7 @@
 ## Recipie is a portfolio app where you can upload, delete, and favorite your food recipies.
 
+## https://this-recipie.netlify.app/
+
 ## Functionality:
 
 A) You can upload a recipe with the information below:
@@ -35,7 +37,9 @@ Firebase - Firestore
 3. sass -> Because it rocks!
 4. uuid -> for auto-generating ids for the uploads
 5. react-icons -> for some of the icons used
-6. react-spinners -> for the loading spinner whilst data is fetched
+6. react-spinners -> to show a loading spinner whilst the app is downloaded or data is fetched
 7. the-new-css-reset -> for resetting styles for all browsers and make elements consistent
 
-Have fun with it!
+Have fun with it here is the link!
+
+## https://this-recipie.netlify.app/

@@ -34,7 +34,6 @@
     @include flex-row-start;
     flex-wrap: wrap;
     gap: 10px;
-
     max-width: 90%;
 
     .ingredient-styles {
@@ -43,7 +42,6 @@
       background-color: $lightRed;
       border-radius: 20px;
       color: white;
-      margin-bottom: -15px;
       cursor: pointer;
     }
   }

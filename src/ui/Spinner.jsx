@@ -1,11 +1,11 @@
 import { HashLoader } from "react-spinners"
 import "./spinner.scss"
 
-const Spinner = () => {
+const Spinner = ({ size, cssClass }) => {
   return (
     <>
-      <div className='spinner'>
-        <HashLoader color='#e55b5b' size='100' />
+      <div className={cssClass}>
+        <HashLoader color='#e55b5b' size={size} />
       </div>
     </>
   )

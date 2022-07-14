@@ -17,7 +17,7 @@ function App() {
           path='/'
           element={
             <>
-              {isLoading && <Spinner />}
+              {isLoading && <Spinner size='100px' cssClass='spinner' />}
               {!isLoading && <HomePage />}
             </>
           }></Route>
@@ -25,7 +25,7 @@ function App() {
           path='/recipies'
           element={
             <>
-              {isLoading && <Spinner />}
+              {isLoading && <Spinner size='100px' cssClass='spinner' />}
               {!isLoading && <RecipiesPage />}
             </>
           }></Route>
@@ -33,7 +33,7 @@ function App() {
           path='/favorites'
           element={
             <>
-              {isLoading && <Spinner />}
+              {isLoading && <Spinner size='100px' cssClass='spinner' />}
               {!isLoading && <FavoritesPage />}
             </>
           }></Route>
@@ -41,7 +41,7 @@ function App() {
           path='/recipies/:recipeId'
           element={
             <>
-              {isLoading && <Spinner />}
+              {isLoading && <Spinner size='100px' cssClass='spinner' />}
               {!isLoading && <RecipePage />}
             </>
           }></Route>

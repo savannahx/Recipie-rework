@@ -8,6 +8,7 @@ import DifficultyPrepTimeFields from "./DifficultyPrepTimeFields"
 import ImageUploadField from "./ImageUploadField"
 import DescriptionField from "./DescriptionField"
 import SubmitButton from "./SubmitButton"
+import Spinner from "../../ui/Spinner"
 
 export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
   // Name State
@@ -41,6 +42,9 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
   const [recipeDescription, setRecipeDescription] = useState("")
   const [recipeDescriptionError, setRecipeDescriptionError] = useState("")
   const [recipeDescriptionValid, setRecipeDescriptionValid] = useState(false)
+
+  // Show - Hide Spinner
+  const [showSpinner, setShowSpinner] = useState(false)
 
   // put all valid checker variables in an object so we can loop through it using the "every" JS method on an "Object.values" and check if all values are true - means they passed validation
   const valids = {
@@ -85,9 +89,14 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
       setRecipeDescriptionValid(false)
       setRecipeImageValid(false)
       // scroll top the top
-      window.scrollTo(0, 0)
+
+      setShowSpinner(true)
       // Takes you back to recipe screen
-      setShowForm(false)
+      setTimeout(() => {
+        setShowSpinner(false)
+        window.scrollTo(0, 0)
+      }, 5000)
+
       // If not all values in valids object are true the run checks and show appropriate error messages
     } else {
       let keys = Object.keys(valids)
@@ -180,6 +189,8 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
           />
           {/* Submit Button */}
           <SubmitButton />
+
+          {showSpinner && <Spinner size='50px' cssClass='smallerSpinner' />}
         </form>
       </div>
     </>
