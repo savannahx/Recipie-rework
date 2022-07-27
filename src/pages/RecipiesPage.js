@@ -1,4 +1,3 @@
-import Nav from "../layout/Nav"
 import ShowRecipies from "../components/ShowRecipies"
 import { useContext, useEffect } from "react"
 import { useLocation } from "react-router-dom"
@@ -61,9 +60,7 @@ const RecipiesPage = () => {
             <AddRecipeForm setShowForm={setShowForm} addRecipe={addRecipe} />
           )}
         </Container>
-        {/* Bottom Nav */}
       </section>
-      <Nav />
     </>
   )
 }

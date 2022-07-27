@@ -5,6 +5,7 @@ import App from "./App"
 import { BrowserRouter } from "react-router-dom"
 import { ScrollToTop } from "./util/scrollToTop"
 import RecipeContextProvider from "./context/RecipeContext"
+import Nav from "./layout/Nav"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
@@ -13,6 +14,7 @@ root.render(
       <BrowserRouter>
         <ScrollToTop />
         <App />
+        <Nav />
       </BrowserRouter>
     </RecipeContextProvider>
   </React.StrictMode>

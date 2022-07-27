@@ -1,4 +1,3 @@
-import Nav from "../layout/Nav"
 import { motion, AnimatePresence } from "framer-motion"
 import { useContext } from "react"
 import { RecipeContext } from "../context/RecipeContext"
@@ -65,9 +64,6 @@ const RecipePage = () => {
           </motion.div>
         </AnimatePresence>
       </Container>
-
-      {/* Bottom Nav */}
-      <Nav />
     </>
   )
 }

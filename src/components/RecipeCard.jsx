@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
+import styles from "./recipeCard.module.scss"
 import { excerpt } from "../util/excerpt"
-import "./recipeCard.scss"
 import { BsClockHistory, BsTrash, BsStar } from "react-icons/bs"
 
 const RecipeCard = ({
@@ -15,64 +15,52 @@ const RecipeCard = ({
 }) => {
   return (
     <>
-      <div className='card-wrapper'>
+      <div className={styles["card-wrapper"]}>
         {/* Image */}
-        <div className='img-wrapper'>
-          <img className='img' src={recipe.img} alt={recipe.recipeName} />
+        <div className={styles["img-wrapper"]}>
+          <img
+            className={styles["img"]}
+            src={recipe.img}
+            alt={recipe.recipeName}
+          />
         </div>
         {/* SVGs favorite-delete */}
-        <div className='action-button-area'>
+        <div className={styles["action-button-area"]}>
           {isFavRecipe && (
-            <button
+            <BsTrash
+              className={styles["action-button"]}
               onClick={() => deleteFromFavorites(recipe.id)}
-              className='action-button'>
-              <BsTrash />
-            </button>
+            />
           )}
           {!isFavRecipe && (
-            <button
+            <BsTrash
               onClick={() => deleteRecipe(recipe.id)}
-              className='action-button'>
-              <BsTrash />
-            </button>
+              className={styles["action-button"]}
+            />
           )}
-          {/* {!isFavRecipe && isInFavorites.includes(recipe.id) ? (
-            <button
-              onClick={() => addToFavorites(recipe)}
-              className='action-button favored-recipe'>
-              <BsStar />
-            </button>
-          ) : (
-            <button
-              onClick={() => addToFavorites(recipe)}
-              className='action-button'>
-              <BsStar />
-            </button>
-          )} */}
           {!isFavRecipe && (
-            <button
+            <BsStar
               onClick={() => addToFavorites(recipe)}
-              className='action-button'>
-              <BsStar />
-            </button>
+              className={styles["action-button"]}
+            />
           )}
         </div>
-        <div className='card-content'>
+        <div className={styles["card-content"]}>
           {/* PrepTime */}
-          <div className='prep-time-area'>
+          <div className={styles["prep-time-area"]}>
             <BsClockHistory className='clock-icon' />
-            <p className='prep-time-copy'>
+            <p>
               - {recipe.prepTime}' {recipe.difficulty}
             </p>
           </div>
           {/* Name */}
-          <h3 className='recipe-title'>{recipe.recipeName}</h3>
+          <h3 className={styles["recipe-title"]}>{recipe.recipeName}</h3>
           {/* Description */}
-          <div className='recipe-description'>
+          <div className={styles["recipe-description"]}>
             <p>{excerpt(recipe.description, 60)}</p>
           </div>
           {/* Button */}
-          <Link to={`/recipies/${recipe.id}`} className='recipe-link'>
+          <Link to={`/recipies/${recipe.id}`} className={styles["recipe-link"]}>
             Go to Recipe
           </Link>
         </div>

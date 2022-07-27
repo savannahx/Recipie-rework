@@ -1,4 +1,3 @@
-import Nav from "../layout/Nav"
 import ShowRecipies from "../components/ShowRecipies"
 import Container from "../ui/Container"
 import "./favoritesPage.scss"
@@ -48,8 +47,6 @@ const FavoritesPage = () => {
         <Container>
           <ShowRecipies title='Your Favorites' values={propValues} />
         </Container>
-        {/* Bottom Nav */}
-        <Nav />
       </section>
     </>
   )

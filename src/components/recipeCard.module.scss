@@ -19,15 +19,18 @@
     gap: 20px;
 
     .action-button {
+      height: 35px;
+      width: 35px;
       @include flex-row-center;
       background-color: white;
-      font-size: 1.5rem;
-      padding: 7px;
+      transition: 300ms all;
+      padding: 5px;
       border-radius: 100%;
       cursor: pointer;
 
       &:hover {
         background-color: $lightRed;
+        color: #fff;
       }
 
       &:active {
@@ -101,6 +104,8 @@
       .action-button {
         font-size: 1.7rem;
         padding: 10px;
+        height: 45px;
+        width: 45px;
       }
     }
 
@@ -133,6 +138,10 @@
       .recipe-link {
         padding: 20px 50px;
         font-size: 1.3rem;
+        transition: 200ms all;
+        &:hover {
+          opacity: 0.85;
+        }
       }
     }
   }
@@ -141,6 +150,13 @@
 @media (min-width: $laptop) {
   .card-wrapper {
     max-width: 100%;
+
+    .action-button-area {
+      .action-button {
+        height: 50px;
+        width: 50px;
+      }
+    }
 
     .card-content {
       padding: 25px;

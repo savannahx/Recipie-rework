@@ -52,6 +52,10 @@
       z-index: 0;
       background-color: white;
       border-radius: 12px;
+      transition: 200ms all;
+      &:hover {
+        opacity: 0.85;
+      }
 
       .add-icon {
         display: block;

@@ -46,7 +46,7 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
   // Show - Hide Spinner
   const [showSpinner, setShowSpinner] = useState(false)
 
-  // put all valid checker variables in an object so we can loop through it using the "every" JS method on an "Object.values" and check if all values are true - means they passed validation
+  // Put all valid checker variables in an object so we can loop through it using the "every" JS method on an "Object.values" and check if all values are true - means they passed validation
   const valids = {
     name: recipeNameValid,
     ingredients: recipeIngredientsValid,

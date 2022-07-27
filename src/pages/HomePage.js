@@ -1,4 +1,3 @@
-import Nav from "../layout/Nav"
 import "./homePage.scss"
 import Logo from "../images/recipie-white.svg"
 import ChefImage from "../images/Chef-icon.svg"
@@ -46,8 +45,6 @@ const HomePage = () => {
           </Container>
         </motion.section>
       </AnimatePresence>
-      {/* Bottom Nav */}
-      <Nav />
     </>
   )
 }
