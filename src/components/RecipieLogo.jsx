@@ -1,12 +1,12 @@
 import Logo from "../images/recipie-black.svg"
-import "./recipieLogo.scss"
+import styles from "./recipieLogo.module.scss"
 
 const RecipieLogo = () => {
   return (
     <>
       {/* Logo */}
-      <div className='logo-wrapper'>
-        <img src={Logo} alt='Recipie Logo' className='logo' />
+      <div className={styles["logo-wrapper"]}>
+        <img src={Logo} alt='Recipie Logo' className={styles["logo"]} />
       </div>
     </>
   )

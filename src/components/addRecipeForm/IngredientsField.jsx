@@ -1,7 +1,7 @@
 import ErrorMessage from "./ErrorMessage"
 import Label from "./Label"
 import { v4 as uuidv4 } from "uuid"
-import "./ingredientsField.scss"
+import styles from "./ingredientsField.module.scss"
 
 const RecipeIngredientsField = ({
   recipeIngredient,
@@ -74,11 +74,11 @@ const RecipeIngredientsField = ({
   return (
     <>
       {/* Ingredients Area */}
-      <div className='ingredients-area'>
+      <div className={styles["ingredients-area"]}>
         {/* Ingredients Input Area */}
-        <div className='ingredients-input-area'>
+        <div className={styles["ingredients-input-area"]}>
           {/* Ingredients Input */}
-          <div className='ingredients-input-wrapper'>
+          <div className={styles["ingredients-input-wrapper"]}>
             <Label text='Ingredients' linkToInput='ingredients-id' />
             <input
               type='text'
@@ -86,27 +86,27 @@ const RecipeIngredientsField = ({
               onChange={addIngredientValidation}
               id='ingredients-id'
               autoComplete='off'
-              className='ingredients-input'
+              className={styles["ingredients-input"]}
             />
           </div>
           {/* Ingredients Add Button */}
           <button
             type='button'
             onClick={addIngredients}
-            className='ingredients-button'>
+            className={styles["ingredients-button"]}>
             Add
           </button>
         </div>
         {/* Display Ingredients Area  */}
-        <div className='ingredients-output-area'>
+        <div className={styles["ingredients-output-area"]}>
           {recipeIngredients.map((ingredient) => {
             return (
               // Single Ingredient
-              <div key={ingredient.ingId} className='ingredient-styles'>
+              <div
+                key={ingredient.ingId}
+                className={styles["ingredient-styles"]}>
                 <span>{ingredient.ingName}</span>
-                <span
-                  onClick={() => deleteIngredient(ingredient.ingId)}
-                  className='text-xl cursor-pointer'>
+                <span onClick={() => deleteIngredient(ingredient.ingId)}>
                   {" "}
                   x
                 </span>

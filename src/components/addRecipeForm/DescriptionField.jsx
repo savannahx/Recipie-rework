@@ -1,6 +1,6 @@
 import ErrorMessage from "./ErrorMessage"
 import Label from "./Label"
-import "./descriptionField.scss"
+import styles from "./descriptionField.module.scss"
 
 const DescriptionField = ({
   recipeDescription,
@@ -37,14 +37,14 @@ const DescriptionField = ({
 
   return (
     <>
-      <div className='description-wrapper'>
+      <div className={styles["description-wrapper"]}>
         <Label text='Description' linkToInput='description-id' />
         <textarea
           id='description-id'
           value={recipeDescription}
           onChange={descriptionValidation}
           autoComplete='off'
-          className='textarea-field'
+          className={styles["textarea-field"]}
           rows='5'></textarea>
         <ErrorMessage text={recipeDescriptionError} />
       </div>

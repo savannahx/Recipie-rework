@@ -1,7 +1,7 @@
 import { BsArrowLeftCircleFill } from "react-icons/bs"
 import RecipieLogo from "../RecipieLogo"
 import { useState } from "react"
-import "./index.scss"
+import styles from "./index.module.scss"
 import NameField from "./NameField"
 import IngredientsField from "./IngredientsField"
 import DifficultyPrepTimeFields from "./DifficultyPrepTimeFields"
@@ -127,12 +127,14 @@ export const AddRecipeForm = ({ setShowForm, addRecipe }) => {
 
   return (
     <>
-      <div className='form-wrapper'>
+      <div className={styles["form-wrapper"]}>
         <RecipieLogo />
         {/* Form */}
-        <form onSubmit={submitRecipe} className='max-w-[1000px] mx-auto'>
+        <form onSubmit={submitRecipe}>
           {/* Go Back Icon */}
-          <div onClick={() => setShowForm(false)} className='arrow-back'>
+          <div
+            onClick={() => setShowForm(false)}
+            className={styles["arrow-back"]}>
             <BsArrowLeftCircleFill />
           </div>
           {/* Recipe Name */}

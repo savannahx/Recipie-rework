@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import AddRecipeForm from "../components/addRecipeForm"
 import Container from "../ui/Container"
-import "./recipiesPage.scss"
+import styles from "./recipiesPage.module.scss"
 import { RecipeContext } from "../context/RecipeContext"
 
 const RecipiesPage = () => {
@@ -51,7 +51,9 @@ const RecipiesPage = () => {
   return (
     <>
       <section
-        className={`${showForm ? "recipies-page-white" : "recipies-page"}`}>
+        className={`${
+          showForm ? styles["recipies-page-white"] : styles["recipies-page"]
+        }`}>
         <Container>
           {!showForm && (
             <ShowRecipies title='Your Recipies' values={propValues} />

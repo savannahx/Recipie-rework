@@ -1,6 +1,6 @@
 import ImgIcon from "../../images/img-placeholder.png"
 import ErrorMessage from "./ErrorMessage"
-import "./imageUploadField.scss"
+import styles from "./imageUploadField.module.scss"
 import Label from "./Label"
 
 const ImageUploadField = ({
@@ -31,18 +31,22 @@ const ImageUploadField = ({
 
   return (
     <>
-      <div className='image-field-wrapper'>
-        <label htmlFor='image-upload' className='label-wrapper'>
-          <img src={ImgIcon} alt='upload icon' className='image-icon' />
+      <div className={styles["image-field-wrapper"]}>
+        <label htmlFor='image-upload' className={styles["label-wrapper"]}>
+          <img
+            src={ImgIcon}
+            alt='upload icon'
+            className={styles["image-icon"]}
+          />
           <Label
             text={recipeImage ? recipeImage : "Upload your recipe image"}
           />
-          <div className='browse-button'>Browse</div>
+          <div className={styles["browse-button"]}>Browse</div>
           <input
             type='file'
             onChange={recipeImageValidation}
             id='image-upload'
-            className='img-input'
+            className={styles["img-input"]}
           />
         </label>
         <ErrorMessage text={recipeImageError} />

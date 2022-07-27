@@ -1,7 +1,7 @@
 import React from "react"
 import AddIcon from "../images/add.svg"
 import RecipeCard from "./RecipeCard"
-import "./recipeDisplayArea.scss"
+import styles from "./recipeDisplayArea.module.scss"
 
 const RecipeDisplayArea = ({
   values,
@@ -15,11 +15,15 @@ const RecipeDisplayArea = ({
   return (
     <>
       {/* Show Recipies Area  */}
-      <div className='horizontal-scrolling-container-and-wrapper'>
+      <div className={styles["horizontal-scrolling-container-and-wrapper"]}>
         {/* Add a New Recipe */}
         {!isFavRecipe && (
-          <div onClick={gotToForm} className='add-new-recipe-card'>
-            <img className='add-icon' src={AddIcon} alt='add recipe icon' />
+          <div onClick={gotToForm} className={styles["add-new-recipe-card"]}>
+            <img
+              className={styles["add-icon"]}
+              src={AddIcon}
+              alt='add recipe icon'
+            />
           </div>
         )}
         {/* Recipies Page - Recipies */}

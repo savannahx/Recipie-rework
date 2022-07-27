@@ -1,9 +1,9 @@
-import "./submitButton.scss"
+import styles from "./submitButton.module.scss"
 
 const SubmitButton = () => {
   return (
     <>
-      <button type='submit' className='submit-button '>
+      <button type='submit' className={styles["submit-button"]}>
         Save Recipe
       </button>
     </>

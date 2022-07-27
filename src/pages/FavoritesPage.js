@@ -1,6 +1,6 @@
 import ShowRecipies from "../components/ShowRecipies"
 import Container from "../ui/Container"
-import "./favoritesPage.scss"
+import styles from "./favoritesPage.module.scss"
 import { useLocation } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import { RecipeContext } from "../context/RecipeContext"
@@ -43,7 +43,7 @@ const FavoritesPage = () => {
 
   return (
     <>
-      <section className='favorites-page'>
+      <section className={styles["favorites-page"]}>
         <Container>
           <ShowRecipies title='Your Favorites' values={propValues} />
         </Container>

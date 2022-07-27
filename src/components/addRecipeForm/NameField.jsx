@@ -1,6 +1,6 @@
 import ErrorMessage from "./ErrorMessage"
 import Label from "./Label"
-import "./nameField.scss"
+import styles from "./nameField.module.scss"
 
 const RecipeNameField = ({
   recipeName,
@@ -42,7 +42,7 @@ const RecipeNameField = ({
   return (
     <>
       {/* Recipe Name Input Field */}
-      <div className='name-input-wrapper'>
+      <div className={styles["name-input-wrapper"]}>
         <Label text='Recipe Name' linkToInput='name-input' />
         <input
           type='text'
@@ -50,7 +50,7 @@ const RecipeNameField = ({
           onChange={recipeNameValidation}
           id='name-input'
           autoComplete='off'
-          className='name-input'
+          className={styles["name-input"]}
         />
         <ErrorMessage text={recipeNameError} />
       </div>

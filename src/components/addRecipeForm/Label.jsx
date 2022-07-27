@@ -1,9 +1,9 @@
-import "./label.scss"
+import styles from "./label.module.scss"
 
 const Label = ({ text, linkToInput }) => {
   return (
     <>
-      <label htmlFor={linkToInput} className='label'>
+      <label htmlFor={linkToInput} className={styles["label"]}>
         {text}
       </label>
     </>

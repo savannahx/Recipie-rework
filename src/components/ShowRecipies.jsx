@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion"
-import "./showRecipies.scss"
+import styles from "./showRecipies.module.scss"
 import NotificationsWrapper from "../ui/NotificationsWrapper"
 import RecipeDisplayArea from "./RecipeDisplayArea"
 import RecipieLogo from "./RecipieLogo"
@@ -13,7 +13,7 @@ const ShowRecipies = ({ title, values }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className='recipe-display-wrapper'>
+          className={styles["recipe-display-wrapper"]}>
           <RecipieLogo />
           <RecipieTitle title={title} />
           <RecipeDisplayArea values={values} />
