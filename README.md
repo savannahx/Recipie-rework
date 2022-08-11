@@ -34,7 +34,7 @@ Firebase - Firestore
 
 1. firebase -> for the db (firestore)
 2. framer-motion -> for the fade in and out of components when they mount/unmount
-3. sass -> Because it rocks!
+3. sass -> Makes working with css more flexible
 4. uuid -> for auto-generating ids for the uploads
 5. react-icons -> for some of the icons used
 6. react-spinners -> to show a loading spinner whilst the app is downloaded or data is fetched
